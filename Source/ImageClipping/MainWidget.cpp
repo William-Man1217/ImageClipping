@@ -274,7 +274,7 @@ bool InSizeToInteger(const TArray<UEditableTextBox*> Texts, TArray<int32>& SizeV
         // Check if the input is a valid int32
         bool bIsValidInt32 = FDefaultValueHelper::ParseInt(InputString, ParsedInt32);
 
-        if (bIsValidInt32)
+        if (bIsValidInt32 && ParsedInt32>0)
         {
             SizeValue.Add(ParsedInt32);  // Add to color values array
         }
@@ -304,7 +304,7 @@ void UMainWidget::ClipFColor()
         return;
     }
 
-    FColor colorcode = FColor(ColorsValue[2], ColorsValue[1], ColorsValue[0], ColorsValue[3]);
+    FColor colorcode = FColor(ColorsValue[0], ColorsValue[1], ColorsValue[2], ColorsValue[3]);
 
     const int32 InSizeX = SizeValue[0];
     const int32 InSizeY = SizeValue[1];
